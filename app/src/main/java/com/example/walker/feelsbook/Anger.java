@@ -17,6 +17,7 @@ public class Anger extends Emotion {
 
         this.date=date;
         count++;
+        comment = "";
     }
     public Anger(Date date2){
 

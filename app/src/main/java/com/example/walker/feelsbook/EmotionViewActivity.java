@@ -13,8 +13,8 @@ public class EmotionViewActivity extends AppCompatActivity {
         setContentView(R.layout.emotion_history);
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
-
-
     }
+
+
 
 }

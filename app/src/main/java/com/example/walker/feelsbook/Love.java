@@ -17,10 +17,14 @@ public class Love extends Emotion {
 
         this.date=date;
         count++;
+        comment = "";
     }
     public Love(Date date2){
 
         this.date=date2;
+    }
+    public String toString(){
 
+        return Integer.toString(count);
     }
 }

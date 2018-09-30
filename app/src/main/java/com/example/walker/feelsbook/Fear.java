@@ -17,6 +17,7 @@ public class Fear extends Emotion{
 
         this.date=date;
         count++;
+        comment = "";
     }
     public Fear(Date date2){
 

@@ -17,6 +17,7 @@ public class Surprise extends Emotion {
 
         this.date=date;
         count++;
+        comment = "";
     }
     public Surprise(Date date2){
 

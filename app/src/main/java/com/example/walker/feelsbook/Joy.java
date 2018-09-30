@@ -17,6 +17,7 @@ public class Joy extends Emotion {
 
         this.date=date;
         count++;
+        comment = "";
     }
     public Joy(Date date2){
 
