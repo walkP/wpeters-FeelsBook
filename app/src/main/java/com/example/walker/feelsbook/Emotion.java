@@ -9,9 +9,6 @@ public class Emotion {
     protected String mood;
 
     public Emotion(){
-
-        this.date=date;
-
     }
     public  String getDate(){
         return this.date;
