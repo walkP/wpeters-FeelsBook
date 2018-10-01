@@ -23,6 +23,21 @@ public class EmotionHistoryList {
         emotionHistoryList.remove(emotion);
         notifyListener();
     }
+    public String getEmotionMood(int i){
+        return emotionHistoryList.get(i).mood;
+    }
+    public String getEmotionDate(int i){
+        return emotionHistoryList.get(i).date;
+    }
+    public String getEmotionComment(int i){
+        return emotionHistoryList.get(i).comment;
+    }
+    public void setNewDate(String s, int i){
+        emotionHistoryList.get(i).setDate(s);
+    }
+    public void setNewComment(String s, int i){
+        emotionHistoryList.get(i).setComment(s);
+    }
     public void notifyListener(){
         for(Listener listener : listeners ){
             listener.update();

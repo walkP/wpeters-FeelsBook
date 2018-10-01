@@ -13,7 +13,14 @@ public class EmotionHistoryListController {
     public void addEmotion(Emotion emotion){
         getEmotionList().addEmotion(emotion);
     }
-    public EmotionHistoryList getList(){
-        return emotionList;
+    public String getEmotion(int i){
+       return getEmotionList().getEmotionMood(i);
     }
+    public String getEmotionDate(int i){
+        return getEmotionList().getEmotionDate(i);
+    }
+    public String getEmotionCoomment(int i){
+        return getEmotionList().getEmotionComment(i);
+    }
+
 }

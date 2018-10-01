@@ -23,7 +23,13 @@
         <activity
             android:name=".EmotionViewActivity"
             android:label="@string/title_activity_emotion_view"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".EmotionEditActivity"
+            android:label="Edit Emotion"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>

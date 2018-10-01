@@ -1,5 +1,6 @@
 package com.example.walker.feelsbook;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,13 +41,30 @@ public class EmotionViewActivity extends AppCompatActivity {
             }
         });
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterview, View view, int position, long id) {
+                //Toast.makeText(EmotionViewActivity.this,
+                // "Edit " + list.get(position).toString(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(EmotionViewActivity.this,EmotionEditActivity.class);
+                Bundle extras = new Bundle();
+                extras.putString("oldComment", EmotionHistoryListController.getEmotionList().getEmotionComment(position));
+                extras.putString("oldDate", EmotionHistoryListController.getEmotionList().getEmotionDate(position));
+                extras.putInt("index",position);
+                intent.putExtras(extras);
+                startActivity(intent);
+
+            }
+        });
+
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterview, View view, int position, long id) {
                 //Toast.makeText(EmotionViewActivity.this,
                 // "Delete " + list.get(position).toString(), Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder adb = new AlertDialog.Builder(EmotionViewActivity.this);
-                adb.setMessage("Delete " + list.get(position).toString());
+                adb.setMessage("Delete " + list.get(position).toString() + "?");
                 adb.setCancelable(true);
                 final int finalPosition = position;
                 adb.setPositiveButton("Delete", new DialogInterface.OnClickListener(){
@@ -62,7 +80,7 @@ public class EmotionViewActivity extends AppCompatActivity {
                     }
                 });
                 adb.show();
-                return false;
+                return true;
             }
         });
 

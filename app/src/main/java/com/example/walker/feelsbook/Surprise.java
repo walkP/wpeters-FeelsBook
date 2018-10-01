@@ -7,11 +7,6 @@ import java.util.TimeZone;
 
 public class Surprise extends Emotion {
 
-    int surpriseCount=0;
-    @Override
-    public void setDate(){
-        this.date=date;
-    }
     @Override
     public String getDate(){
         return this.date;
@@ -24,7 +19,6 @@ public class Surprise extends Emotion {
         df.setTimeZone(tz);
         String nowAsISO = df.format(new Date());
         this.date= nowAsISO;
-        surpriseCount++;
         comment = "";
         mood = "Surprise";
     }

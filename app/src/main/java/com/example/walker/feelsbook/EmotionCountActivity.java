@@ -21,27 +21,63 @@ public class EmotionCountActivity extends AppCompatActivity{
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        EmotionHistoryListController st = new EmotionHistoryListController();
         Collection<Emotion> emotions = EmotionHistoryListController.getEmotionList().getEmotionHistory();
         final ArrayList<Emotion> list = new ArrayList<Emotion>(emotions);
 
+        int loveCount=0;
+        int joyCount=0;
+        int surpriseCount=0;
+        int angerCount=0;
+        int sadnessCount=0;
+        int fearCount=0;
+
         TextView textView = findViewById(R.id.loveCountTextView);
-        textView.setText("1");
+        for(int i=0 ; i<list.size() ; i++){
+            if(EmotionHistoryListController.getEmotionList().getEmotionMood(i) == "Love"){
+                loveCount++;
+            }
+        }
+        textView.setText(Integer.toString(loveCount));
 
         TextView textView1 = findViewById(R.id.joyCountTextView);
-        textView1.setText("2");
+        for(int i=0 ; i<list.size() ; i++){
+            if(EmotionHistoryListController.getEmotionList().getEmotionMood(i) == "Joy"){
+                joyCount++;
+            }
+        }
+        textView1.setText(Integer.toString(joyCount));
 
         TextView textView2 = findViewById(R.id.surpriseCountTextView);
-        textView2.setText("3");
+        for(int i=0 ; i<list.size() ; i++){
+            if(EmotionHistoryListController.getEmotionList().getEmotionMood(i) == "Surprise"){
+                surpriseCount++;
+            }
+        }
+        textView2.setText(Integer.toString(surpriseCount));
 
         TextView textView3 = findViewById(R.id.angerCountTextView);
-        textView3.setText("4");
+        for(int i=0 ; i<list.size() ; i++){
+            if(EmotionHistoryListController.getEmotionList().getEmotionMood(i) == "Anger"){
+                angerCount++;
+            }
+        }
+        textView3.setText(Integer.toString(angerCount));
 
         TextView textView4 = findViewById(R.id.sadnessCountTextView);
-        textView4.setText("5");
+        for(int i=0 ; i<list.size() ; i++){
+            if(EmotionHistoryListController.getEmotionList().getEmotionMood(i) == "Sadness"){
+                sadnessCount++;
+            }
+        }
+        textView4.setText(Integer.toString(sadnessCount));
 
         TextView textView5 = findViewById(R.id.fearCountTextView);
-        textView5.setText("6");
+        for(int i=0 ; i<list.size() ; i++){
+            if(EmotionHistoryListController.getEmotionList().getEmotionMood(i) == "Fear"){
+                fearCount++;
+            }
+        }
+        textView5.setText(Integer.toString(fearCount));
 
     }
 
