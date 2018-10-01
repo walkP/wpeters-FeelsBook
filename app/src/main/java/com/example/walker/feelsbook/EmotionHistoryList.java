@@ -34,9 +34,11 @@ public class EmotionHistoryList {
     }
     public void setNewDate(String s, int i){
         emotionHistoryList.get(i).setDate(s);
+        notifyListener();
     }
     public void setNewComment(String s, int i){
         emotionHistoryList.get(i).setComment(s);
+        notifyListener();
     }
     public void notifyListener(){
         for(Listener listener : listeners ){

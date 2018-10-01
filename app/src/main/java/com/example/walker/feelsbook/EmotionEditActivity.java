@@ -4,7 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -26,24 +30,22 @@ public class EmotionEditActivity extends AppCompatActivity{
         editDateText.setText(oldDate);
         editCommentText.setText(oldComment);
     }
-    public void saveEdit(){
+    public void saveEdit(View v){
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         int index = extras.getInt("index");
         EditText editDateText = findViewById(R.id.editDateEditText);
         EditText editCommentText = findViewById(R.id.editCommentEditText);
-        String newDate = editDateText.toString();
-        String newComment = editCommentText.toString();
+        String newDate = editDateText.getText().toString();
+        String newComment = editCommentText.getText().toString();
 
         EmotionHistoryListController.getEmotionList().setNewDate(newDate,index);
         EmotionHistoryListController.getEmotionList().setNewComment(newComment,index);
 
-        Intent intent2 = new Intent(EmotionEditActivity.this,EmotionViewActivity.class);
-        startActivity(intent2);
+        Toast.makeText(EmotionEditActivity.this,
+        "Entry has been edited", Toast.LENGTH_SHORT).show();
+        finish();
     }
-    public void cancelEdit(){
-        Intent intent = new Intent(EmotionEditActivity.this,EmotionViewActivity.class);
-        startActivity(intent);
-    }
+
 }
 
