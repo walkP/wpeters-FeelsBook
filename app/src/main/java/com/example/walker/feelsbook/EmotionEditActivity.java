@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 
 public class EmotionEditActivity extends AppCompatActivity{
 
@@ -41,6 +42,8 @@ public class EmotionEditActivity extends AppCompatActivity{
 
         EmotionHistoryListController.getEmotionList().setNewDate(newDate,index);
         EmotionHistoryListController.getEmotionList().setNewComment(newComment,index);
+
+        Collections.sort(EmotionHistoryListController.getEmotionList().emotionHistoryList);
 
         Toast.makeText(EmotionEditActivity.this,
         "Entry has been edited", Toast.LENGTH_SHORT).show();

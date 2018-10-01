@@ -2,8 +2,9 @@ package com.example.walker.feelsbook;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 
-public class EmotionHistoryList {
+public class EmotionHistoryList{
 
     protected ArrayList<Emotion> emotionHistoryList;
     protected ArrayList<Listener> listeners;
@@ -17,10 +18,12 @@ public class EmotionHistoryList {
     }
     public void addEmotion(Emotion newEmotion){
         emotionHistoryList.add(newEmotion);
+        Collections.sort(EmotionHistoryListController.getEmotionList().emotionHistoryList);
         notifyListener();
     }
     public void deleteEmotion(Emotion emotion){
         emotionHistoryList.remove(emotion);
+        Collections.sort(EmotionHistoryListController.getEmotionList().emotionHistoryList);
         notifyListener();
     }
     public String getEmotionMood(int i){

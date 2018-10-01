@@ -2,7 +2,7 @@ package com.example.walker.feelsbook;
 
 import java.util.Date;
 
-public class Emotion {
+public class Emotion implements Comparable<Emotion> {
 
     protected String date;
     protected String comment;
@@ -21,6 +21,11 @@ public class Emotion {
     }
     public String toString(){
         return date + " | " + mood + " | " + comment;
+    }
+    @Override
+    public int compareTo(Emotion otherEmotion){
+        return otherEmotion.getDate().compareTo(this.date);
+
     }
 
 }
