@@ -5,7 +5,6 @@ import java.util.Date;
 public class Emotion {
 
     protected String date;
-    protected int count=0;
     protected String comment;
     protected String mood;
 

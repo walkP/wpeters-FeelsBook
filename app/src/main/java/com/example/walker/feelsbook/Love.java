@@ -7,6 +7,7 @@ import java.util.TimeZone;
 
 public class Love extends Emotion {
 
+    int loveCount=0;
     @Override
     public void setDate(){
         this.date=date;
@@ -23,8 +24,11 @@ public class Love extends Emotion {
         df.setTimeZone(tz);
         String nowAsISO = df.format(new Date());
         this.date= nowAsISO;
-        count++;
+        loveCount++;
         comment = "";
         mood = "Love";
+    }
+    public int getCount(){
+        return loveCount;
     }
 }

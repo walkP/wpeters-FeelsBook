@@ -13,5 +13,7 @@ public class EmotionHistoryListController {
     public void addEmotion(Emotion emotion){
         getEmotionList().addEmotion(emotion);
     }
-
+    public EmotionHistoryList getList(){
+        return emotionList;
+    }
 }

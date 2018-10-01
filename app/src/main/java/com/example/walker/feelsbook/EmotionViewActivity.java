@@ -1,6 +1,10 @@
 package com.example.walker.feelsbook;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.preference.DialogPreference;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -39,14 +43,29 @@ public class EmotionViewActivity extends AppCompatActivity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterview, View view, int position, long id) {
-                //Toast.makeText(EmotionViewActivity.this, "Delete " + list.get(position).toString(), Toast.LENGTH_SHORT).show();
-                Emotion emotion = list.get(position);
-                EmotionHistoryListController.getEmotionList().deleteEmotion(emotion);
-
-
+                //Toast.makeText(EmotionViewActivity.this,
+                // "Delete " + list.get(position).toString(), Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder adb = new AlertDialog.Builder(EmotionViewActivity.this);
+                adb.setMessage("Delete " + list.get(position).toString());
+                adb.setCancelable(true);
+                final int finalPosition = position;
+                adb.setPositiveButton("Delete", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int which){
+                        Emotion emotion = list.get(finalPosition);
+                        EmotionHistoryListController.getEmotionList().deleteEmotion(emotion);
+                    }
+                });
+                adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                adb.show();
                 return false;
             }
         });
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
