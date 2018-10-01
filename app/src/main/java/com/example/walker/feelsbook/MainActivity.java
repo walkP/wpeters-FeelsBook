@@ -54,51 +54,52 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this,EmotionCountActivity.class);
         startActivity(intent);
     }
+    EmotionHistoryListController st = new EmotionHistoryListController();
     public void chooseLove(View v){
-        EmotionHistoryListController st = new EmotionHistoryListController();
+        //EmotionHistoryListController st = new EmotionHistoryListController();
         Love love = new Love();
         EditText textView = findViewById(R.id.optionalComment);
-        love.comment = textView.toString();
+        love.comment = textView.getText().toString();
         st.addEmotion(love);
         Toast.makeText(this, "Love has been Recorded", Toast.LENGTH_SHORT).show();
     }
     public void chooseJoy(View v){
-        EmotionHistoryListController st = new EmotionHistoryListController();
+        //EmotionHistoryListController st = new EmotionHistoryListController();
         Joy joy = new Joy();
         EditText textView = findViewById(R.id.optionalComment);
-        joy.comment = textView.toString();
+        joy.comment = textView.getText().toString();
         st.addEmotion(joy);
         Toast.makeText(this, "Joy has been Recorded", Toast.LENGTH_SHORT).show();
     }
     public void chooseAnger(View v){
-        EmotionHistoryListController st = new EmotionHistoryListController();
+        //EmotionHistoryListController st = new EmotionHistoryListController();
         Anger anger = new Anger();
         EditText textView = findViewById(R.id.optionalComment);
-        anger.comment = textView.toString();
+        anger.comment = textView.getText().toString();
         st.addEmotion(anger);
         Toast.makeText(this, "Anger has been Recorded", Toast.LENGTH_SHORT).show();
     }
     public void chooseSadness(View v){
-        EmotionHistoryListController st = new EmotionHistoryListController();
+        //EmotionHistoryListController st = new EmotionHistoryListController();
         Sadness sad = new Sadness();
         EditText textView = findViewById(R.id.optionalComment);
-        sad.comment = textView.toString();
+        sad.comment = textView.getText().toString();
         st.addEmotion(sad);
         Toast.makeText(this, "Sadness has been Recorded", Toast.LENGTH_SHORT).show();
     }
     public void chooseSurprise(View v){
-        EmotionHistoryListController st = new EmotionHistoryListController();
+        //EmotionHistoryListController st = new EmotionHistoryListController();
         Surprise sur = new Surprise();
         EditText textView = findViewById(R.id.optionalComment);
-        sur.comment = textView.toString();
+        sur.comment = textView.getText().toString();
         st.addEmotion(sur);
         Toast.makeText(this, "Surprise has been Recorded", Toast.LENGTH_SHORT).show();
     }
     public void chooseFear(View v){
-        EmotionHistoryListController st = new EmotionHistoryListController();
+       // EmotionHistoryListController st = new EmotionHistoryListController();
         Fear fear = new Fear();
         EditText textView = findViewById(R.id.optionalComment);
-        fear.comment = textView.toString();
+        fear.comment = textView.getText().toString();
         st.addEmotion(fear);
         Toast.makeText(this, "Fear has been Recorded", Toast.LENGTH_SHORT).show();
     }
