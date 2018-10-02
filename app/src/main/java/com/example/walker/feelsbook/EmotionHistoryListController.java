@@ -1,6 +1,7 @@
 package com.example.walker.feelsbook;
 
 public class EmotionHistoryListController {
+    //Controller used for altering an EmotionHistoryList
 
     //Lazy Singleton
     private static EmotionHistoryList emotionList = null;

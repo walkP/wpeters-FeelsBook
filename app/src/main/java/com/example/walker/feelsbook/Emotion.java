@@ -1,8 +1,7 @@
 package com.example.walker.feelsbook;
 
-import java.util.Date;
-
 public class Emotion implements Comparable<Emotion> {
+    //Class that acts as the paren class for all of the different emotions
 
     protected String date;
     protected String comment;

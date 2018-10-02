@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class EmotionHistoryList{
+    //ArrayList that holds all emotions, also has some methods to alter the list
+    //Also updates listeners
 
     protected ArrayList<Emotion> emotionHistoryList;
     protected ArrayList<Listener> listeners;

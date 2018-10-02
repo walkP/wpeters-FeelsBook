@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class Sadness extends Emotion {
+    //Extension of Emotion that displays Sadness
 
     @Override
     public String getDate(){
