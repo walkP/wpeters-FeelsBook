@@ -20,6 +20,8 @@ public class EmotionViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.emotion_history);
+        EmotionHistoryListManager.initManager(this.getApplicationContext());
+
 
         ListView listView = (ListView)findViewById(R.id.emotionHistoryListView);
         Collection<Emotion> emotions = EmotionHistoryListController.getEmotionList().getEmotionHistory();
@@ -41,7 +43,7 @@ public class EmotionViewActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
-            public void onItemClick(AdapterView<?> adapterview, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 //Toast.makeText(EmotionViewActivity.this,
                 // "Edit " + list.get(position).toString(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(EmotionViewActivity.this,EmotionEditActivity.class);
@@ -57,7 +59,7 @@ public class EmotionViewActivity extends AppCompatActivity {
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> adapterview, View view, int position, long id) {
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
                 //Toast.makeText(EmotionViewActivity.this,
                 // "Delete " + list.get(position).toString(), Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder adb = new AlertDialog.Builder(EmotionViewActivity.this);

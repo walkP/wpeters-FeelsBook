@@ -13,6 +13,8 @@ public class EmotionEditActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_entry);
+        EmotionHistoryListManager.initManager(this.getApplicationContext());
+
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
