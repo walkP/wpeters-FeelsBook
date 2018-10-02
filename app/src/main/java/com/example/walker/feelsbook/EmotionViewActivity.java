@@ -38,6 +38,7 @@ public class EmotionViewActivity extends AppCompatActivity {
                 list.addAll(emotions);
                 emotionAdapter.notifyDataSetChanged();
             }
+
         });
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -58,6 +59,8 @@ public class EmotionViewActivity extends AppCompatActivity {
         });
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            EmotionHistoryListController st = new EmotionHistoryListController();
+
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
                 //Toast.makeText(EmotionViewActivity.this,
@@ -70,7 +73,7 @@ public class EmotionViewActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which){
                         Emotion emotion = list.get(finalPosition);
-                        EmotionHistoryListController.getEmotionList().deleteEmotion(emotion);
+                        st.deleteEmotion(emotion);
                     }
                 });
                 adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

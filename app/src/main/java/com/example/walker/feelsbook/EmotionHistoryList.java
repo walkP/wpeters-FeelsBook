@@ -1,6 +1,5 @@
 package com.example.walker.feelsbook;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,18 +13,24 @@ public class EmotionHistoryList implements Serializable{
      * EmotionHistoryList serialization ID
      */
     private static final long serializationID = 321654987;
-    protected ArrayList<Emotion> emotionHistoryList = null;
+    protected ArrayList<Emotion> emotionHistoryList = null;;
     protected transient ArrayList<Listener> listeners = null;
-    protected int loveCount=0;
-    protected int joyCount=0;
-    protected int surpriseCount=0;
-    protected int angerCount=0;
-    protected int sadnessCount=0;
-    protected int fearCount=0;
+    protected int loveCount;
+    protected int joyCount;
+    protected int surpriseCount;
+    protected int angerCount;
+    protected int sadnessCount;
+    protected int fearCount;
 
     public EmotionHistoryList(){
         emotionHistoryList = new ArrayList<Emotion>();
         listeners = new ArrayList<Listener>();
+        loveCount=0;
+        joyCount=0;
+        surpriseCount=0;
+        angerCount=0;
+        sadnessCount=0;
+        fearCount=0;
     }
     private ArrayList<Listener> getListeners(){
         if(listeners == null){
@@ -48,42 +53,21 @@ public class EmotionHistoryList implements Serializable{
         notifyListener();
     }
     public void deleteEmotion(Emotion emotion){
-        if(emotion.mood =="Love") loveCount--;
-        if(emotion.mood =="Joy") joyCount--;
-        if(emotion.mood =="Surprise") surpriseCount--;
-        if(emotion.mood =="Anger") angerCount--;
-        if(emotion.mood =="Sadness") sadnessCount--;
-        if(emotion.mood =="Fear") fearCount--;
+        if(emotion.mood.equals("Love")) loveCount--;
+        if(emotion.mood.equals("Joy")) joyCount--;
+        if(emotion.mood.equals("Surprise")) surpriseCount--;
+        if(emotion.mood.equals("Anger")) angerCount--;
+        if(emotion.mood.equals("Sadness")) sadnessCount--;
+        if(emotion.mood.equals("Fear")) fearCount--;
         emotionHistoryList.remove(emotion);
         Collections.sort(EmotionHistoryListController.getEmotionList().emotionHistoryList);
         notifyListener();
-    }
-    public String getEmotionMood(int i){
-        return emotionHistoryList.get(i).mood;
     }
     public String getEmotionDate(int i){
         return emotionHistoryList.get(i).date;
     }
     public String getEmotionComment(int i){
         return emotionHistoryList.get(i).comment;
-    }
-    public int getLoveCount(){
-        return loveCount;
-    }
-    public int getJoyCount(){
-        return joyCount;
-    }
-    public int getSurpriseCount(){
-        return surpriseCount;
-    }
-    public int getAngerCount(){
-        return angerCount;
-    }
-    public int getSadnessCount(){
-        return sadnessCount;
-    }
-    public int getFearCount(){
-        return fearCount;
     }
     public void setNewDate(String s, int i){
         emotionHistoryList.get(i).setDate(s);
@@ -96,9 +80,6 @@ public class EmotionHistoryList implements Serializable{
     }
     public int size(){
         return emotionHistoryList.size();
-    }
-    public boolean contains(Emotion testEmotion){
-        return emotionHistoryList.contains(testEmotion);
     }
     public void notifyListener(){
         for(Listener listener : getListeners() ){

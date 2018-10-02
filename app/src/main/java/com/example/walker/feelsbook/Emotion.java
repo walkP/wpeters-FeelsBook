@@ -1,6 +1,10 @@
 package com.example.walker.feelsbook;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 public class Emotion implements Comparable<Emotion>, Serializable {
     //Class that acts as the paren class for all of the different emotions
@@ -14,6 +18,16 @@ public class Emotion implements Comparable<Emotion>, Serializable {
     protected String mood;
 
     public Emotion(){
+
+    }
+    public Emotion(String mood){
+        TimeZone tz = TimeZone.getTimeZone("Canada/Mountain");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss"); // Quoted "Z" to indicate UTC, no timezone offset
+        df.setTimeZone(tz);
+        String nowAsISO = df.format(new Date());
+        this.date= nowAsISO;
+        comment = "";
+        this.mood = mood;
     }
     public  String getDate(){
         return this.date;

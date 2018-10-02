@@ -17,6 +17,7 @@ public class EmotionHistoryListController {
                     public void update() {
                         saveEmotionHistoryList();
                     }
+
                 });
             } catch (IOException e) {
                 e.printStackTrace();
@@ -39,21 +40,25 @@ public class EmotionHistoryListController {
         }
 
     }
-
     public void addEmotion(Emotion emotion){
         getEmotionList().addEmotion(emotion);
     }
     public void deleteEmotion(Emotion emotion){
         getEmotionList().deleteEmotion(emotion);
     }
-        public String getEmotion(int i){
-       return getEmotionList().getEmotionMood(i);
+    public int getLoveCount(){ return getEmotionList().loveCount; }
+    public int getJoyCount(){ return getEmotionList().joyCount; }
+    public int getSurpriseCount(){
+        return getEmotionList().surpriseCount;
     }
-    public String getEmotionDate(int i){
-        return getEmotionList().getEmotionDate(i);
+    public int getAngerCount(){
+        return getEmotionList().angerCount;
     }
-    public String getEmotionComment(int i){
-        return getEmotionList().getEmotionComment(i);
+    public int getSadnessCount(){
+        return getEmotionList().sadnessCount;
+    }
+    public int getFearCount(){
+        return getEmotionList().fearCount;
     }
 
 }

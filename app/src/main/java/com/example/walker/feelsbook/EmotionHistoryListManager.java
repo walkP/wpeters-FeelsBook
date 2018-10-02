@@ -11,6 +11,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class EmotionHistoryListManager {
+    //Manager responsible for the serialization and deserialization of the Emotion List
+    //Also saves preferences and stores them for persistence when app restarted
+
     static final String prefFile = "EmotionHistoryList";
     static final String elKey = "emotionHistoryList";
 
@@ -39,7 +42,7 @@ public class EmotionHistoryListManager {
     }
     public EmotionHistoryList loadEmotionHistoryList() throws IOException, ClassNotFoundException {
         SharedPreferences settings = context.getSharedPreferences(prefFile, Context.MODE_PRIVATE);
-         String emotionHistoryListData = settings.getString(elKey, "");
+        String emotionHistoryListData = settings.getString(elKey, "");
         if(emotionHistoryListData.equals("")){
             return new EmotionHistoryList();
         }else{
