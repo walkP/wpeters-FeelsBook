@@ -8,6 +8,8 @@ import java.util.Collections;
 public class EmotionHistoryList implements Serializable{
     //ArrayList that holds all emotions, also has some methods to alter the list
     //Also updates listeners
+    //This class was designed to act as the list that stores all of the Emotions,
+    //and includes some methods to act on and alter the list
 
     protected ArrayList<Emotion> emotionHistoryList = null;;
     protected transient ArrayList<Listener> listeners = null;

@@ -11,8 +11,8 @@ import java.io.ObjectOutputStream;
 
 public class EmotionHistoryListManager {
     //Manager responsible for the serialization and deserialization of the Emotion List
-    //Also saves preferences and stores them for persistence when app restarted
-    //Also contains the method for counting EmotionsE
+    //This class was designed to save preferences and stores them for persistence when app
+    //restarted, also contains the method for counting Emotions
 
     static final String prefFile = "EmotionHistoryList";
     static final String elKey = "emotionHistoryList";

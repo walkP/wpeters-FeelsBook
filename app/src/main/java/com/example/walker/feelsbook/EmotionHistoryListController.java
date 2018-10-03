@@ -4,6 +4,8 @@ import java.io.IOException;
 
 public class EmotionHistoryListController {
     //Controller used for altering an EmotionHistoryList
+    //This class was designed to act as the controller for the EmotionHistoryList,
+    //and it also makes sure the list stays how it is supposed to
 
     //Lazy Singleton
     private static EmotionHistoryList emotionList = null;
