@@ -9,10 +9,6 @@ import java.util.TimeZone;
 public class Emotion implements Comparable<Emotion>, Serializable {
     //Class that acts as the parent class for all of the different emotions
 
-    /**
-     * Emotion serialization ID
-     */
-    private static final long serializationID = 1234567891;
     protected String date;
     protected String comment;
     protected String mood;

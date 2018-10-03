@@ -9,10 +9,6 @@ public class EmotionHistoryList implements Serializable{
     //ArrayList that holds all emotions, also has some methods to alter the list
     //Also updates listeners
 
-    /**
-     * EmotionHistoryList serialization ID
-     */
-    private static final long serializationID = 321654987;
     protected ArrayList<Emotion> emotionHistoryList = null;;
     protected transient ArrayList<Listener> listeners = null;
 
@@ -20,14 +16,14 @@ public class EmotionHistoryList implements Serializable{
         emotionHistoryList = new ArrayList<Emotion>();
         listeners = new ArrayList<Listener>();
     }
+    public Collection<Emotion> getEmotionHistory(){
+        return emotionHistoryList;
+    }
     private ArrayList<Listener> getListeners(){
         if(listeners == null){
             listeners = new ArrayList<Listener>();
         }
         return listeners;
-    }
-    public Collection<Emotion> getEmotionHistory(){
-        return emotionHistoryList;
     }
     public void addEmotion(Emotion newEmotion){
         emotionHistoryList.add(newEmotion);

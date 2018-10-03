@@ -12,7 +12,7 @@ import java.io.ObjectOutputStream;
 public class EmotionHistoryListManager {
     //Manager responsible for the serialization and deserialization of the Emotion List
     //Also saves preferences and stores them for persistence when app restarted
-    //Also contains the method for counting Emotions
+    //Also contains the method for counting EmotionsE
 
     static final String prefFile = "EmotionHistoryList";
     static final String elKey = "emotionHistoryList";
@@ -20,6 +20,19 @@ public class EmotionHistoryListManager {
     Context context;
 
     static private EmotionHistoryListManager emotionHistoryListManager = null;
+
+    public EmotionHistoryListManager(Context context){
+        this.context = context;
+    }
+    public EmotionHistoryList loadEmotionHistoryList() throws IOException, ClassNotFoundException {
+        SharedPreferences settings = context.getSharedPreferences(prefFile, Context.MODE_PRIVATE);
+        String emotionHistoryListData = settings.getString(elKey, "");
+        if(emotionHistoryListData.equals("")){
+            return new EmotionHistoryList();
+        }else{
+            return emotionHistoryListFromString(emotionHistoryListData);
+        }
+    }
 
     public static void initManager(Context context){
         if(emotionHistoryListManager == null){
@@ -35,19 +48,6 @@ public class EmotionHistoryListManager {
             throw new RuntimeException("Did not initialize Manager");
         }
         return emotionHistoryListManager;
-    }
-
-    public EmotionHistoryListManager(Context context){
-        this.context = context;
-    }
-    public EmotionHistoryList loadEmotionHistoryList() throws IOException, ClassNotFoundException {
-        SharedPreferences settings = context.getSharedPreferences(prefFile, Context.MODE_PRIVATE);
-        String emotionHistoryListData = settings.getString(elKey, "");
-        if(emotionHistoryListData.equals("")){
-            return new EmotionHistoryList();
-        }else{
-            return emotionHistoryListFromString(emotionHistoryListData);
-        }
     }
 
     static private EmotionHistoryList emotionHistoryListFromString(String emotionHistoryListData) throws ClassNotFoundException, IOException{
