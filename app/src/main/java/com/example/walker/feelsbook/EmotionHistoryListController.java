@@ -46,19 +46,19 @@ public class EmotionHistoryListController {
     public void deleteEmotion(Emotion emotion){
         getEmotionList().deleteEmotion(emotion);
     }
-    public int getLoveCount(){ return getEmotionList().loveCount; }
-    public int getJoyCount(){ return getEmotionList().joyCount; }
-    public int getSurpriseCount(){
-        return getEmotionList().surpriseCount;
+    static public int countLove(){ return EmotionHistoryListManager.getManager().countEmotion(new Love()); }
+    static public int countJoy(){ return EmotionHistoryListManager.getManager().countEmotion(new Joy()); }
+    static public int countSurprise(){
+        return EmotionHistoryListManager.getManager().countEmotion(new Surprise());
     }
-    public int getAngerCount(){
-        return getEmotionList().angerCount;
+    static public int countAnger(){
+        return EmotionHistoryListManager.getManager().countEmotion(new Anger());
     }
-    public int getSadnessCount(){
-        return getEmotionList().sadnessCount;
+    static public int countSadness(){
+        return EmotionHistoryListManager.getManager().countEmotion(new Sadness());
     }
-    public int getFearCount(){
-        return getEmotionList().fearCount;
+    static public int countFear(){
+        return EmotionHistoryListManager.getManager().countEmotion(new Fear());
     }
 
 }

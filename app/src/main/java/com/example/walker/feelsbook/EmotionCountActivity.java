@@ -3,14 +3,12 @@ package com.example.walker.feelsbook;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Collection;
 
 
 public class EmotionCountActivity extends AppCompatActivity{
+    //View that shows the counts of each Emotion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,25 +19,23 @@ public class EmotionCountActivity extends AppCompatActivity{
         EmotionHistoryListManager.initManager(this.getApplicationContext());
 
 
-        EmotionHistoryListController st = new EmotionHistoryListController();
-
         TextView textView = findViewById(R.id.loveCountTextView);
-        textView.setText(Integer.toString(st.getLoveCount()));
+        textView.setText(Integer.toString(EmotionHistoryListController.countLove()));
 
         TextView textView1 = findViewById(R.id.joyCountTextView);
-        textView1.setText(Integer.toString(st.getJoyCount()));
+        textView1.setText(Integer.toString(EmotionHistoryListController.countJoy()));
 
         TextView textView2 = findViewById(R.id.surpriseCountTextView);
-        textView2.setText(Integer.toString(st.getSurpriseCount()));
+        textView2.setText(Integer.toString(EmotionHistoryListController.countSurprise()));
 
         TextView textView3 = findViewById(R.id.angerCountTextView);
-        textView3.setText(Integer.toString(st.getAngerCount()));
+        textView3.setText(Integer.toString(EmotionHistoryListController.countAnger()));
 
         TextView textView4 = findViewById(R.id.sadnessCountTextView);
-        textView4.setText(Integer.toString(st.getSadnessCount()));
+        textView4.setText(Integer.toString(EmotionHistoryListController.countSadness()));
 
         TextView textView5 = findViewById(R.id.fearCountTextView);
-        textView5.setText(Integer.toString(st.getFearCount()));
+        textView5.setText(Integer.toString(EmotionHistoryListController.countFear()));
 
     }
 

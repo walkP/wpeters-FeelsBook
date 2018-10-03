@@ -15,22 +15,10 @@ public class EmotionHistoryList implements Serializable{
     private static final long serializationID = 321654987;
     protected ArrayList<Emotion> emotionHistoryList = null;;
     protected transient ArrayList<Listener> listeners = null;
-    protected int loveCount;
-    protected int joyCount;
-    protected int surpriseCount;
-    protected int angerCount;
-    protected int sadnessCount;
-    protected int fearCount;
 
     public EmotionHistoryList(){
         emotionHistoryList = new ArrayList<Emotion>();
         listeners = new ArrayList<Listener>();
-        loveCount=0;
-        joyCount=0;
-        surpriseCount=0;
-        angerCount=0;
-        sadnessCount=0;
-        fearCount=0;
     }
     private ArrayList<Listener> getListeners(){
         if(listeners == null){
@@ -42,23 +30,11 @@ public class EmotionHistoryList implements Serializable{
         return emotionHistoryList;
     }
     public void addEmotion(Emotion newEmotion){
-        if(newEmotion.mood =="Love") loveCount++;
-        if(newEmotion.mood =="Joy") joyCount++;
-        if(newEmotion.mood =="Surprise") surpriseCount++;
-        if(newEmotion.mood =="Anger") angerCount++;
-        if(newEmotion.mood =="Sadness") sadnessCount++;
-        if(newEmotion.mood =="Fear") fearCount++;
         emotionHistoryList.add(newEmotion);
         Collections.sort(EmotionHistoryListController.getEmotionList().emotionHistoryList);
         notifyListener();
     }
     public void deleteEmotion(Emotion emotion){
-        if(emotion.mood.equals("Love")) loveCount--;
-        if(emotion.mood.equals("Joy")) joyCount--;
-        if(emotion.mood.equals("Surprise")) surpriseCount--;
-        if(emotion.mood.equals("Anger")) angerCount--;
-        if(emotion.mood.equals("Sadness")) sadnessCount--;
-        if(emotion.mood.equals("Fear")) fearCount--;
         emotionHistoryList.remove(emotion);
         Collections.sort(EmotionHistoryListController.getEmotionList().emotionHistoryList);
         notifyListener();

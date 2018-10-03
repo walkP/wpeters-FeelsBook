@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class Emotion implements Comparable<Emotion>, Serializable {
-    //Class that acts as the paren class for all of the different emotions
+    //Class that acts as the parent class for all of the different emotions
 
     /**
      * Emotion serialization ID
@@ -61,6 +61,10 @@ public class Emotion implements Comparable<Emotion>, Serializable {
     }
     public int hashCode(){
        return  ("Emotion" + getDate()).hashCode();
+    }
+    public boolean matches(Emotion emotion){
+        if(this.mood.equals(emotion.mood)) return true;
+        return false;
     }
 
 }

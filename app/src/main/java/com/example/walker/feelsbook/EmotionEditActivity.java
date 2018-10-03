@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 
 public class EmotionEditActivity extends AppCompatActivity{
+    //View that lets you edit past Emotions
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

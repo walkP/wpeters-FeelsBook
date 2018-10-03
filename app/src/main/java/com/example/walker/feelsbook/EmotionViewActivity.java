@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class EmotionViewActivity extends AppCompatActivity {
+    //View that shows the history of Emotions recorded
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

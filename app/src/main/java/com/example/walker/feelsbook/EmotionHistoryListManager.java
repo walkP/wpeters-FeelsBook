@@ -3,7 +3,6 @@ package com.example.walker.feelsbook;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Base64;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -13,6 +12,7 @@ import java.io.ObjectOutputStream;
 public class EmotionHistoryListManager {
     //Manager responsible for the serialization and deserialization of the Emotion List
     //Also saves preferences and stores them for persistence when app restarted
+    //Also contains the method for counting Emotions
 
     static final String prefFile = "EmotionHistoryList";
     static final String elKey = "emotionHistoryList";
@@ -72,6 +72,14 @@ public class EmotionHistoryListManager {
         editor.commit();
 
     }
-
+    public int countEmotion(Emotion emotionToMatch){
+        int count =0;
+        for(Emotion emotion : EmotionHistoryListController.getEmotionList().emotionHistoryList){
+            if(emotion.matches(emotionToMatch)){
+                count++;
+            }
+        }
+        return count;
+    }
 
 }
