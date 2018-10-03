@@ -37,8 +37,8 @@ public class EmotionEditActivity extends AppCompatActivity{
         String newDate = editDateText.getText().toString();
         String newComment = editCommentText.getText().toString();
 
-        EmotionHistoryListController.getEmotionList().setNewDate(newDate,index);
         EmotionHistoryListController.getEmotionList().setNewComment(newComment,index);
+        EmotionHistoryListController.getEmotionList().setNewDate(newDate,index);
 
         Toast.makeText(EmotionEditActivity.this,
         "Entry has been edited", Toast.LENGTH_SHORT).show();
